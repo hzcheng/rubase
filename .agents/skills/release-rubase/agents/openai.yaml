@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release RuBase"
+  short_description: "Prepare and publish verified RuBase releases"
+  default_prompt: "Use $release-rubase to prepare and publish a verified RuBase release."

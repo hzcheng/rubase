@@ -1,0 +1,4 @@
+interface:
+  display_name: "Record RuBase ADR"
+  short_description: "Capture durable RuBase architecture decisions as ADRs"
+  default_prompt: "Use $record-rubase-adr to document this RuBase architecture decision."
