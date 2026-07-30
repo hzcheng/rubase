@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Run release checks
         run: cargo xtask release-check
@@ -40,7 +40,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Build CLI
         run: cargo build --profile dist --package rubase-cli
@@ -52,11 +52,12 @@ jobs:
           cp "target/dist/${{ matrix.executable }}" "dist/rubase-${{ matrix.name }}${{ runner.os == 'Windows' && '.exe' || '' }}"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: rubase-${{ matrix.name }}
           path: dist/*
           if-no-files-found: error
+          retention-days: 1
 
   publish:
     name: Publish release
@@ -65,7 +66,7 @@ jobs:
     environment: release
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           path: dist
           merge-multiple: true
