@@ -1,0 +1,10 @@
+[alias]
+ci = "run --package xtask -- ci"
+lint = "clippy --workspace --all-targets --all-features -- -D warnings"
+xtask = "run --package xtask --"
+
+[build]
+incremental = true
+
+[term]
+color = "auto"

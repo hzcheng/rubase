@@ -1,0 +1,20 @@
+[package]
+name = "rubase-benchmarks"
+description = "Cross-cutting benchmark harness for RuBase."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+publish = false
+
+[[bin]]
+name = "rubase-benchmarks"
+path = "src/main.rs"
+doc = false
+
+[dependencies]
+rubase.workspace = true
+
+[lints]
+workspace = true

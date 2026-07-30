@@ -1,0 +1,43 @@
+[workspace]
+resolver = "3"
+members = [
+    "benchmarks",
+    "crates/rubase",
+    "crates/rubase-cli",
+    "tests/compatibility",
+    "tests/integration",
+    "tools/xtask",
+]
+default-members = [
+    "crates/rubase",
+    "crates/rubase-cli",
+]
+exclude = ["fuzz"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+license = "Apache-2.0"
+authors = ["RuBase contributors"]
+
+[workspace.dependencies]
+rubase = { version = "0.1.0", path = "crates/rubase" }
+
+[workspace.lints.rust]
+missing_debug_implementations = "warn"
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+
+[profile.dist]
+inherits = "release"
+lto = "fat"

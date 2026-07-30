@@ -1,0 +1,34 @@
+name: Dependency audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 3 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - "**/Cargo.toml"
+      - "Cargo.lock"
+      - "deny.toml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit dependencies and licenses
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install audit tools
+        run: |
+          cargo install --locked cargo-audit
+          cargo install --locked cargo-deny
+
+      - name: Check security advisories
+        run: cargo audit
+
+      - name: Check licenses, bans, and sources
+        run: cargo deny check

@@ -1,0 +1,20 @@
+[package]
+name = "rubase-cli"
+description = "Command-line interface for RuBase."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+publish = false
+
+[[bin]]
+name = "rubase"
+path = "src/main.rs"
+doc = false
+
+[dependencies]
+rubase.workspace = true
+
+[lints]
+workspace = true

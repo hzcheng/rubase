@@ -1,0 +1,17 @@
+/target/
+/dist/
+/coverage/
+*.profraw
+*.profdata
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
