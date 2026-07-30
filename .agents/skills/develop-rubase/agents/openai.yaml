@@ -1,0 +1,4 @@
+interface:
+  display_name: "Develop RuBase"
+  short_description: "Implement and verify changes in the RuBase repository"
+  default_prompt: "Use $develop-rubase to implement this RuBase change with the required tests and validation."

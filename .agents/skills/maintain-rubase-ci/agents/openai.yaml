@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain RuBase CI"
+  short_description: "Safely evolve RuBase CI and GitHub Actions workflows"
+  default_prompt: "Use $maintain-rubase-ci to update RuBase CI without weakening repository protections."
