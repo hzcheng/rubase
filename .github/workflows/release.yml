@@ -52,7 +52,7 @@ jobs:
           cp "target/dist/${{ matrix.executable }}" "dist/rubase-${{ matrix.name }}${{ runner.os == 'Windows' && '.exe' || '' }}"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: rubase-${{ matrix.name }}
           path: dist/*
