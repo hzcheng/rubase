@@ -11,13 +11,15 @@ mutable Action tag is safe.
 
 ## Audit before editing
 
-1. Inspect the local branch, worktree, `.github/workflows/`,
+1. Keep the primary checkout on `main`; create or enter a task-specific
+   `.worktrees/<branch-slug>` worktree before changing tracked files.
+2. Inspect the local branch, worktree list, `.github/workflows/`,
    `.github/dependabot.yml`, and relevant release documentation.
-2. Read current required check contexts from GitHub branch protection.
-3. Read Actions permissions, allowed Actions, SHA-pinning policy, merge
+3. Read current required check contexts from GitHub branch protection.
+4. Read Actions permissions, allowed Actions, SHA-pinning policy, merge
    settings, environments, and rulesets when the task affects them.
-4. Inspect a real workflow run to confirm displayed check names.
-5. Stop before external writes unless the user explicitly requested repository
+5. Inspect a real workflow run to confirm displayed check names.
+6. Stop before external writes unless the user explicitly requested repository
    configuration changes.
 
 ## Update Actions safely
@@ -65,3 +67,7 @@ mutable Action tag is safe.
    `main`, then read the settings back to verify them.
 7. Report workflow checks, repository settings changed, and any manual release
    approval still required.
+8. Report the skill-evolution outcome required by `AGENTS.md`, applying a
+   reusable improvement when the completed task exposed one.
+9. After merge, remove the clean task worktree, prune worktree metadata, and
+   delete the merged local branch.

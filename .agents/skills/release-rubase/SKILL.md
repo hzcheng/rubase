@@ -22,7 +22,8 @@ version tags.
 ## Prepare through a PR
 
 1. Start from a clean, current `main`.
-2. Create a release branch; never commit directly to `main`.
+2. Create the release branch in `.worktrees/<branch-slug>` from the current
+   `origin/main`; keep the primary checkout on `main`.
 3. Update the workspace version and every intentionally synchronized package.
 4. Move relevant entries from `Unreleased` into a dated version section and
    retain an empty `Unreleased` section.
@@ -57,4 +58,8 @@ when the user explicitly included registry publication in scope.
 ## Report
 
 Report the version, PR and commit, tag, workflow result, artifact verification,
-release URL, and whether any registry publication remains pending.
+release URL, and whether any registry publication remains pending. Report the
+skill-evolution outcome required by `AGENTS.md`, applying reusable release
+workflow improvements when supported by the completed release. Remove the clean
+release worktree and prune worktree metadata only after the release PR merges;
+delete the merged local branch.

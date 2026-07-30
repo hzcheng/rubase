@@ -1,6 +1,7 @@
 /target/
 /dist/
 /coverage/
+/.worktrees/
 *.profraw
 *.profdata
 

@@ -17,12 +17,14 @@ covered by an accepted ADR.
 
 ## Prepare the record
 
-1. Read `docs/architecture/` and all ADRs touching the same decision.
-2. Identify the next four-digit ADR number from existing filenames.
-3. Copy `docs/adr/0000-template.md` to
+1. Keep the primary checkout on `main`; create or enter a task-specific
+   `.worktrees/<branch-slug>` worktree before changing the ADR.
+2. Read `docs/architecture/` and all ADRs touching the same decision.
+3. Identify the next four-digit ADR number from existing filenames.
+4. Copy `docs/adr/0000-template.md` to
    `docs/adr/NNNN-short-decision-name.md`.
-4. Use status `proposed` until the user or maintainers accept the decision.
-5. State:
+5. Use status `proposed` until the user or maintainers accept the decision.
+6. State:
    - Context and forces, including compatibility and operational constraints.
    - The decision and its explicit boundaries.
    - Positive and negative consequences.
@@ -43,4 +45,7 @@ covered by an accepted ADR.
 
 Check filename numbering, template completeness, links to affected documents,
 and consistency with accepted ADRs. Summarize the decision and unresolved
-questions in the handoff.
+questions in the handoff. Report the skill-evolution outcome required by
+`AGENTS.md`; update reusable guidance exposed by the decision workflow. After
+merge, remove the clean task worktree, prune worktree metadata, and delete the
+merged local branch.
